@@ -5,7 +5,7 @@ description: Research how to catch fish on a water, a species, or with a techniq
 
 # Fishing Research
 
-A research note answers one question about catching fish: where they hold, what makes them take, which flies, how to present them, and how to read the water. It goes in depth and sources every claim. It is a source for the vault's Karpathy-style wiki. What lasts from it is rewritten into the fish, technique and water pages, which are what the angler reads before a trip. `references/wiki-page-format.md` holds the formats for all three kinds of fishing note; read it first.
+A research note answers one question about catching fish: where they hold, what makes them take, which flies, how to present them, and how to read the water. It goes in depth and sources every claim. It is a source for the vault's Karpathy-style wiki. What lasts from it is rewritten into the fish, technique and water pages, which are what the angler reads before a trip. `references/wiki-page-format.md` holds the formats for every kind of fishing note; read it first.
 
 ## Report (the default)
 

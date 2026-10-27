@@ -1,0 +1,103 @@
+filters:
+  and:
+    - domain == "fishing"
+properties:
+  note.type:
+    displayName: Type
+  note.water:
+    displayName: Water
+  note.flow_cfs:
+    displayName: Flow (cfs)
+  note.water_temp_f:
+    displayName: Water °F
+  note.created:
+    displayName: Created
+  note.artifact:
+    displayName: Artifact
+  note.written_by:
+    displayName: By
+  note.source:
+    displayName: Source
+views:
+  - type: table
+    name: Trips
+    filters:
+      and:
+        - type == "journal"
+    order:
+      - file.name
+      - water
+      - flow_cfs
+      - water_temp_f
+    sort:
+      - property: file.name
+        direction: DESC
+    summaries:
+      file.name: Filled
+  - type: table
+    name: By water
+    filters:
+      and:
+        - type == "journal"
+    groupBy:
+      property: water
+      direction: ASC
+    order:
+      - file.name
+      - flow_cfs
+      - water_temp_f
+    sort:
+      - property: file.name
+        direction: DESC
+  - type: table
+    name: Reports
+    filters:
+      and:
+        - type == "research"
+    order:
+      - file.name
+      - created
+      - artifact
+    sort:
+      - property: created
+        direction: DESC
+    summaries:
+      file.name: Filled
+  - type: table
+    name: Wiki
+    filters:
+      and:
+        - type == "reference"
+        - '!file.hasProperty("source")'
+    order:
+      - file.name
+      - created
+      - written_by
+    summaries:
+      file.name: Filled
+  - type: table
+    name: Passed on
+    filters:
+      and:
+        - type == "reference"
+        - 'file.hasProperty("source")'
+    order:
+      - file.name
+      - source
+      - created
+    sort:
+      - property: created
+        direction: DESC
+    summaries:
+      file.name: Filled
+  - type: table
+    name: Everything
+    groupBy:
+      property: type
+      direction: ASC
+    order:
+      - file.name
+      - created
+      - written_by
+    summaries:
+      file.name: Filled

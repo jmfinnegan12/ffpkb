@@ -4,7 +4,7 @@ description: Answer a question from the vault with what the angler saw or wrote 
 argument-hint: "[domain:<value>] <question>"
 ---
 
-# /recall
+# /ffpkb:recall
 
 The query step of the wiki loop: read the vault, answer with citations, never blend provenance. Nothing is written.
 
@@ -28,4 +28,4 @@ Every claim ends with a wikilink to its note. A lane with nothing gets one line 
 
 ## 4. Offer the next step
 
-First-hand empty: offer `/ingest` for a trip entry or a clipping. Synthesised thin: offer `/fishing-research-report` for a fishing water or species, or a research note otherwise. An answer worth keeping: offer to file it as a `reference` note written by Claude, citing the notes it drew on. Never file it unasked.
+First-hand empty: offer `/ffpkb:ingest` for a trip entry or a clipping. Synthesised thin: offer `/ffpkb:fishing-research-report` for a fishing water or species, or a research note otherwise. An answer worth keeping: offer to file it as a `reference` note written by Claude, citing the notes it drew on. Never file it unasked.

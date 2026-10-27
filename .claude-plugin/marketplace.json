@@ -1,0 +1,11 @@
+{
+  "name": "ffpkb",
+  "owner": { "name": "Jim Finnegan" },
+  "plugins": [
+    {
+      "name": "ffpkb",
+      "source": "./",
+      "description": "Fly fishing personal knowledge base: research, ingest and recall skills that keep a Karpathy-style stream-journal wiki in Obsidian"
+    }
+  ]
+}

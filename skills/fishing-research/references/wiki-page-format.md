@@ -1,6 +1,6 @@
 # Fishing note formats
 
-The single spec for the four kinds of fishing note. `/ingest` (for trips and passed-on advice) and the `fishing-research` skill both write to it.
+The single spec for the four kinds of fishing note. `/ffpkb:ingest` (for trips and passed-on advice) and the `fishing-research` skill both write to it.
 
 Every note serves one goal: helping the angler catch more fish and become a better angler. A sentence that would not change what they do on the water does not belong.
 
@@ -54,7 +54,7 @@ The body is a marked Claude debrief at the top, then the entry:
 
 ## Passed-on note
 
-Advice someone else gave the angler: a guide on a float, the counter at a fly shop, a friend, a book, a video, an article. The angler's capture is the body, verbatim, however rough. Web articles saved whole are clippings instead (`/ingest`'s `references/clipping.md`).
+Advice someone else gave the angler: a guide on a float, the counter at a fly shop, a friend, a book, a video, an article. The angler's capture is the body, verbatim, however rough. Web articles saved whole are clippings instead (`/ffpkb:ingest`'s `references/clipping.md`).
 
 Frontmatter, and nothing else:
 

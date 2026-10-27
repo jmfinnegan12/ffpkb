@@ -24,15 +24,21 @@ Every item names its source. Sources stay as written, and the fish, technique an
 - `skills/fishing-research/` researches a water, species or technique and feeds the pages. Its `references/` and `scripts/` hold the note formats, the quality bar, report templates, subagent briefs and an optional British Columbia geodata toolkit.
 - `skills/ingest/` files trip entries, passed-on advice and web clippings about fishing, through one review table the angler edits before anything is written.
 - `skills/recall/` answers a question from the vault, keeping what the angler saw apart from what the agent synthesised.
-- `commands/fishing-research-report.md` runs a research report, or a deep multi-agent survey.
+- `skills/fishing-research-report/` runs a research report, or a deep multi-agent survey.
 - `templates/` holds the trip template, a starter `Fly Fishing` hub and `Fly Fishing.base`.
+
+The repo is a Claude Code plugin and its own marketplace.
 
 ## How to use it
 
-1. Copy `skills/` and `commands/` into the vault's `.claude/` folder.
+1. In the vault, install the plugin at project scope, so it is recorded in the vault's `.claude/settings.json`:
+   ```
+   claude plugin marketplace add jmfinnegan12/ffpkb --scope project
+   claude plugin install ffpkb@ffpkb --scope project
+   ```
 2. Copy `templates/fishing trip.md` into the vault's `Templates/` folder and replace `<angler>` in it with the angler's name. The trip template uses the Templater plugin.
 3. Copy `templates/Fly Fishing.base` into the vault, and create the hub at `Notes/Fly Fishing.md` from `templates/Fly Fishing.md`.
-4. Open Claude Code in the vault and run `/ingest`, `/recall` or `/fishing-research-report`.
+4. Open Claude Code in the vault and run `/ffpkb:ingest`, `/ffpkb:recall` or `/ffpkb:fishing-research-report`.
 
 The tools expect `Inbox/` for raw captures, a flat `Notes/` folder for everything filed, `Templates/`, and the `Fly Fishing` hub in `Notes/`.
 

@@ -2,7 +2,7 @@
 
 You are one of several parallel research subagents for a fishing research report. You own **ONE research angle**, handed to you by the orchestrator. Go deep on it and return structured, well-sourced findings. Do not try to cover the whole report — just your angle, thoroughly.
 
-**Before you start, read `.claude/skills/fishing-research/references/quality-bar.md` and follow it.** The points below are how you apply it to a single angle.
+**Before you start, read `${CLAUDE_PLUGIN_ROOT}/skills/fishing-research/references/quality-bar.md` and follow it.** The points below are how you apply it to a single angle.
 
 ## How to research your angle
 

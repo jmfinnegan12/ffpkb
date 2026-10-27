@@ -4,9 +4,9 @@ description: File new fishing material into the wiki and update every page it be
 argument-hint: "[optional: an Inbox note, pasted text, or an image path — default is the fishing notes in Inbox/]"
 ---
 
-# /ingest
+# /ffpkb:ingest
 
-The ingest step of the wiki loop: a source goes in untouched, and the notes around it get updated. `/recall` is the query step. Read `.claude/skills/fishing-research/references/wiki-page-format.md` first — it carries the note formats and citation rules this leans on. Every note filed carries `domain: fishing`.
+The ingest step of the wiki loop: a source goes in untouched, and the notes around it get updated. `/ffpkb:recall` is the query step. Read `${CLAUDE_PLUGIN_ROOT}/skills/fishing-research/references/wiki-page-format.md` first — it carries the note formats and citation rules this leans on. Every note filed carries `domain: fishing`.
 
 Source: $ARGUMENTS
 
@@ -29,7 +29,7 @@ Pasted or transcribed text gets written verbatim to `Inbox/` first, as the angle
 | --- | --- | --- |
 | Fishing trip entry | A day on the water: a river, flies, fish, flows | `references/fishing-trip.md` |
 | Web clipping | `clipping: true`, or a `source:` URL and someone else's article | `references/clipping.md` |
-| Passed-on advice | The angler relays what a guide, shop, friend, book, video or article told them | `written_by: <angler>`, plus `source:` naming who said it — ask once if the capture doesn't say. The passed-on note format in `.claude/skills/fishing-research/references/wiki-page-format.md` |
+| Passed-on advice | The angler relays what a guide, shop, friend, book, video or article told them | `written_by: <angler>`, plus `source:` naming who said it — ask once if the capture doesn't say. The passed-on note format in `${CLAUDE_PLUGIN_ROOT}/skills/fishing-research/references/wiki-page-format.md` |
 
 **Who wrote it.** Decide from voice (the angler's captures are usually rough notes; agent prose is polished and refers to the angler in the third person) and, if the vault is under git, from history (`git log --format='%ad %s' --date=short -- <file>`; descriptive messages or `Co-authored-by` trailers mean an agent). Never change an existing `written_by`. A restamp the angler approves in the table is a one-line edit they make themselves in Obsidian; list it in the closing report.
 

@@ -1,5 +1,6 @@
 ---
-description: Fly-fishing research. By default, an in-depth, cited research note on how to catch fish on one water, species, or technique (holding water, behaviour, flies, presentation, reading water), then the fish, technique, and water pages it supports. `deep` runs the full multi-agent regional survey. Invoke as `/fishing-research-report <water-or-species>, <season>` or `/fishing-research-report deep <region-or-species>, <window>`.
+name: fishing-research-report
+description: Fly-fishing research. By default, an in-depth, cited research note on how to catch fish on one water, species, or technique (holding water, behaviour, flies, presentation, reading water), then the fish, technique, and water pages it supports. `deep` runs the full multi-agent regional survey. Invoke as `/ffpkb:fishing-research-report <water-or-species>, <season>` or `/ffpkb:fishing-research-report deep <region-or-species>, <window>`.
 ---
 
 # Fishing Research Report
@@ -17,7 +18,7 @@ The rest of this file is the **deep survey** and runs only for `deep`, or when t
 
 Orchestrate a deep fishing research report to the `fishing-research` skill's quality bar. You are the orchestrator (main session); the heavy research runs in parallel subagents so it goes deep without flooding this context.
 
-**Read first:** `.claude/skills/fishing-research/references/quality-bar.md`, and whichever template applies (below). The bar is non-negotiable — depth over scan, source-type tags, recency flags, primary-source verification, technique-vs-gear-rule checks, conflicts surfaced.
+**Read first:** `${CLAUDE_PLUGIN_ROOT}/skills/fishing-research/references/quality-bar.md`, and whichever template applies (below). The bar is non-negotiable — depth over scan, source-type tags, recency flags, primary-source verification, technique-vs-gear-rule checks, conflicts surfaced.
 
 `$ARGUMENTS` names the subject and window/focus (e.g. `Idaho panhandle, late July / early August` or `coho salmon, Puget Sound + Olympic Peninsula`). If empty, ask.
 
@@ -31,7 +32,7 @@ Ask only for what's missing or genuinely ambiguous — access tiers of interest,
 
 ## Phase 2 — Research plan → APPROVAL GATE
 
-Load the matching template (`.claude/skills/fishing-research/references/fishery-survey-template.md` or `species-profile-template.md`) and propose a plan:
+Load the matching template (`${CLAUDE_PLUGIN_ROOT}/skills/fishing-research/references/fishery-survey-template.md` or `species-profile-template.md`) and propose a plan:
 - Scope and the specific **research angles** (from the template), with what each will cover.
 - The specific waters / subtopics each angle will investigate.
 - The source targets each angle must hit (agency/primary, peer-reviewed, forums/social, guides).
@@ -45,13 +46,13 @@ If the subject is a **British Columbia** region, mention the optional geodata/ma
 
 After approval, spawn **one subagent per research angle, in parallel** (multiple Task calls in a single message):
 - `subagent_type: general-purpose`, `model: opus`
-- Each subagent prompt: (1) instruct it to **read `.claude/skills/fishing-research/references/researcher-brief.md` and `.claude/skills/fishing-research/references/quality-bar.md` first**, then (2) give it its ONE angle, the subject, and the window/focus, and (3) tell it to return the structured findings block the brief specifies (claims · links · source-type tags · dates · confidence · conflicts · check-worthy-claims list · gaps).
+- Each subagent prompt: (1) instruct it to **read `${CLAUDE_PLUGIN_ROOT}/skills/fishing-research/references/researcher-brief.md` and `${CLAUDE_PLUGIN_ROOT}/skills/fishing-research/references/quality-bar.md` first**, then (2) give it its ONE angle, the subject, and the window/focus, and (3) tell it to return the structured findings block the brief specifies (claims · links · source-type tags · dates · confidence · conflicts · check-worthy-claims list · gaps).
 
 Wait for all angle subagents to return.
 
 ## Phase 4 — Verification pass
 
-Collect the **check-worthy claims** the researchers flagged (regs, licences, gear rules, closures, size/retention, status, population, superlatives, and any recommended techniques). Spawn a verification subagent (`general-purpose`, `opus`) instructed to **read `.claude/skills/fishing-research/references/verifier-brief.md` first**, then verify each claim against a primary source and run the gear-rule↔technique check. Drop or tag `unverified` anything it can't confirm; apply its corrections; treat blocking contradictions as must-fix.
+Collect the **check-worthy claims** the researchers flagged (regs, licences, gear rules, closures, size/retention, status, population, superlatives, and any recommended techniques). Spawn a verification subagent (`general-purpose`, `opus`) instructed to **read `${CLAUDE_PLUGIN_ROOT}/skills/fishing-research/references/verifier-brief.md` first**, then verify each claim against a primary source and run the gear-rule↔technique check. Drop or tag `unverified` anything it can't confirm; apply its corrections; treat blocking contradictions as must-fix.
 
 ## Phase 5 — Synthesize
 

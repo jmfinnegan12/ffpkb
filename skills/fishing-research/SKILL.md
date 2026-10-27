@@ -1,6 +1,6 @@
 ---
 name: fishing-research
-description: Research how to catch fish on a water, a species, or with a technique — where the fish hold, what makes them take, which flies, how to present them, how to read the water — and file an in-depth, cited research note that feeds the fishing wiki's fish, technique, and water pages. Use whenever the angler asks for a fishing research report, "what's the fishing like in X", "how to fish X", a waters survey, or a species report. The deep multi-agent regional survey runs only when the angler asks for one. Regulations are never researched into notes; they are checked live before a trip. /fishing-research-report runs it.
+description: Research how to catch fish on a water, a species, or with a technique — where the fish hold, what makes them take, which flies, how to present them, how to read the water — and file an in-depth, cited research note that feeds the fishing wiki's fish, technique, and water pages. Use whenever the angler asks for a fishing research report, "what's the fishing like in X", "how to fish X", a waters survey, or a species report. The deep multi-agent regional survey runs only when the angler asks for one. Regulations are never researched into notes; they are checked live before a trip. /ffpkb:fishing-research-report runs it.
 ---
 
 # Fishing Research
@@ -40,7 +40,7 @@ Always:
 
 ## Deep survey (only when the angler asks)
 
-A multi-water regional survey or a species literature review. `/fishing-research-report deep <subject>, <window>` runs the full pipeline:
+A multi-water regional survey or a species literature review. `/ffpkb:fishing-research-report deep <subject>, <window>` runs the full pipeline:
 - a plan-approval gate;
 - parallel research subagents, one per angle;
 - a verification subagent that checks primary sources;

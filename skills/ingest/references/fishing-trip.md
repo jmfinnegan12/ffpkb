@@ -1,6 +1,6 @@
 # Fishing trip entry
 
-Extra steps when the source is a day on the water. The angler's entry goes in verbatim; Claude adds the day's conditions and a short debrief above it. Formats: `.claude/skills/fishing-research/references/wiki-page-format.md` — read it first.
+Extra steps when the source is a day on the water. The angler's entry goes in verbatim; Claude adds the day's conditions and a short debrief above it. Formats: `${CLAUDE_PLUGIN_ROOT}/skills/fishing-research/references/wiki-page-format.md` — read it first.
 
 ## Before the review table
 
@@ -33,4 +33,4 @@ Under the Update pages table, draft the debrief's **Learned** lines (each ending
 
 Write the debrief callout — all five parts — above the entry, then the approved page changes. The callout is marked as Claude's (`> [!summary] Debrief — Claude, YYYY-MM-DD`), which is what lets it be revised later inside the angler's trip note.
 
-When no research note covers the water, end the report with one line offering `/fishing-research-report <water>, <season>`.
+When no research note covers the water, end the report with one line offering `/ffpkb:fishing-research-report <water>, <season>`.
